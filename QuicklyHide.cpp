@@ -154,7 +154,7 @@ void MessageLoop() {
         {
             if (hWnd == NULL) {
                 if (!(window_name.empty() && class_name.empty())) {
-                    hWnd = FindWindowA(class_name.c_str(), window_name.c_str());
+                    hWnd = FindWindowA(class_name.empty() ? NULL : class_name.c_str(), window_name.empty() ? NULL : window_name.c_str());
                     if (hWnd) {
                         MessageBoxA(NULL, "窗口已找到", "成功", MB_OK);
                     }
